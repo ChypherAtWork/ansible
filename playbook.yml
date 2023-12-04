@@ -42,10 +42,6 @@
         - name: reboot the remote server
           reboot:
                msg: "Reboot the server"
-
-        - name: Pause for 60 seconds before starting again
-          pause:
-               seconds: 60
                
         - name: 
           cron:
