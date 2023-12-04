@@ -1,4 +1,4 @@
-- name: copy nginx.conf file
+- name: copy httpd.conf file
   copy:
             src: /var/lib/jenkins/workspace/ansible/httpd.conf
             dest: /etc/httpd/conf
@@ -13,8 +13,8 @@
             src: /var/lib/jenkins/workspace/ansible/script.sh
             dest: /opt/
 
-- name: install nginx
-  action: apt name=httpd state=present
+- name: install httpd
+  action: yum name=httpd state=present
   notify: installed apache2
         
 - name: 
