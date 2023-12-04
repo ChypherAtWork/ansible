@@ -4,4 +4,5 @@
   become: yes
   connection: ssh
   roles:
-       - webserver
+       - CentOs
+       - Debian
