@@ -4,3 +4,10 @@
   become: yes
   roles:
        - CentOs
+
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  roles:
+       - Debian
