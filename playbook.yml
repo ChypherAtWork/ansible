@@ -43,7 +43,7 @@
           reboot:
                msg: "Reboot the server"
                
-        - name: 
+        - name: running cron
           cron:
                name: run cron job
                minute: "*"
