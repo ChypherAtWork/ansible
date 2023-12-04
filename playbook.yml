@@ -33,7 +33,17 @@
                rule: allow
                port: 1058
                proto: tcp
-          
+        
+        - name: 
+          file:
+               path: /opt/logs
+               state: directory
+        
+        - name: 
+          cron:
+               minute: "*"
+               job: "/opt/script.sh"
+              
   handlers:
         - name: installed nginx
           service: name=nginx state=restarted
