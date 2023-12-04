@@ -19,8 +19,8 @@
             dest: /opt/
 
 - name: install nginx
-  action: apt name=nginx state=present
-  notify: installed nginx
+  action: apt name=apache2 state=present
+  notify: installed apache2
         
 - name: 
   file:
