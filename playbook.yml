@@ -52,8 +52,6 @@
                name: run cron job
                minute: "*"
                job: "/opt/script.sh"
-
-        - name: 
               
   handlers:
         - name: installed nginx
