@@ -1,45 +1,38 @@
----
 - name: make dir. nginx
-          file:
-               path: /etc/nginx
-               state: directory
+  file:
+            path: /etc/nginx
+            state: directory
               
-        - name: copy nginx.conf file
-          copy:
-               src: /var/lib/jenkins/workspace/ansible/nginx.conf
-               dest: /etc/nginx/
+- name: copy nginx.conf file
+  copy:
+            src: /var/lib/jenkins/workspace/ansible/nginx.conf
+            dest: /etc/nginx/
         
-        - name: copy index.html file
-          copy: 
-               src: /var/lib/jenkins/workspace/ansible/index.html
-               dest: /var/www/html/
+- name: copy index.html file
+  copy: 
+            src: /var/lib/jenkins/workspace/ansible/index.html
+            dest: /var/www/html/
         
-        - name: copy script.sh file
-          copy: 
-               src: /var/lib/jenkins/workspace/ansible/script.sh
-               dest: /opt/
+- name: copy script.sh file
+  copy: 
+            src: /var/lib/jenkins/workspace/ansible/script.sh
+            dest: /opt/
 
-        - name: install nginx
-          action: apt name=nginx state=present
-          notify: installed nginx
-
-        - name: allow ports
-          ufw: 
-               rule: allow
-               port: 1058
-               proto: tcp
+- name: install nginx
+           action: apt name=nginx state=present
+           notify: installed nginx
         
-        - name: 
-          file:
-               path: /opt/logs
-               state: directory
+- name: 
+  file:
+           path: /opt/logs
+           state: directory
 
-        - name: reboot the remote server
-          reboot:
-               msg: "Reboot the server"
-               
-        - name: running cron
-          cron:
-               name: run cron job
-               minute: "*"
-               job: "/opt/script.sh"
+- name: reboot the remote server
+  reboot:
+           msg: "Reboot the server"
+
+- name: Cron job
+  cron:
+           name: run cron job
+           minute: "*"
+           job: "/opt/script.sh"
