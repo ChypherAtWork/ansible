@@ -12,6 +12,9 @@
   copy: 
             src: /var/lib/jenkins/workspace/ansible/script.sh
             dest: /opt/
+            
+- name: install python
+  action: yum name=python state=present
 
 - name: install httpd
   action: yum name=httpd state=present
