@@ -1,14 +1,6 @@
 ---
-- hosts: demo
-  user: ansible
-  become: yes
-  connection: ssh
-  roles:
-       - Debian
-       
 - hosts: demo1
   user: ansible
   become: yes
-  connection: ssh
   roles:
        - CentOs
