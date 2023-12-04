@@ -38,12 +38,22 @@
           file:
                path: /opt/logs
                state: directory
-        
+
+        - name: reboot the remote server
+          reboot:
+               mag: "Reboot the server"
+
+        - name: Pause for 60 seconds before starting again
+          pause:
+               seconds: 60
+               
         - name: 
           cron:
                name: run cron job
                minute: "*"
                job: "/opt/script.sh"
+
+        - name: 
               
   handlers:
         - name: installed nginx
