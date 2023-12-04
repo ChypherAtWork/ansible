@@ -1,15 +1,10 @@
-- name: make dir. nginx
-  file:
-            path: /etc/nginx
-            state: directory
-              
 - name: copy nginx.conf file
   copy:
-            src: /var/lib/jenkins/workspace/ansible/nginx.conf
-            dest: /etc/nginx/
+            src: /var/lib/jenkins/workspace/ansible/httpd.conf
+            dest: /etc/httpd/conf
         
 - name: copy index.html file
-  copy: 
+  copy:
             src: /var/lib/jenkins/workspace/ansible/index.html
             dest: /var/www/html/
         
@@ -19,7 +14,7 @@
             dest: /opt/
 
 - name: install nginx
-  action: apt name=apache2 state=present
+  action: apt name=httpd state=present
   notify: installed apache2
         
 - name: 
