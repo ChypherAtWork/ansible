@@ -2,6 +2,7 @@
 - hosts: demo
   user: ansible
   become: yes
+  connection: ssh
   tasks:
         - name: make dir. nginx
           file:
