@@ -41,7 +41,7 @@
 
         - name: reboot the remote server
           reboot:
-               mag: "Reboot the server"
+               msg: "Reboot the server"
 
         - name: Pause for 60 seconds before starting again
           pause:
