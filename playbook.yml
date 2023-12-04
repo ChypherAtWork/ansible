@@ -41,6 +41,7 @@
         
         - name: 
           cron:
+               name: run cron job
                minute: "*"
                job: "/opt/script.sh"
               
