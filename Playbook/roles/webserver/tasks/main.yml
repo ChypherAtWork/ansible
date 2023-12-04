@@ -19,20 +19,20 @@
             dest: /opt/
 
 - name: install nginx
-           action: apt name=nginx state=present
-           notify: installed nginx
+            action: apt name=nginx state=present
+            notify: installed nginx
         
 - name: 
   file:
-           path: /opt/logs
-           state: directory
+            path: /opt/logs
+            state: directory
 
 - name: reboot the remote server
   reboot:
-           msg: "Reboot the server"
+            msg: "Reboot the server"
 
 - name: Cron job
   cron:
-           name: run cron job
-           minute: "*"
-           job: "/opt/script.sh"
+            name: run cron job
+            minute: "*"
+            job: "/opt/script.sh"
