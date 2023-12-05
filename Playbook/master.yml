@@ -3,11 +3,5 @@
   user: ansible
   become: yes
   roles:
-       - CentOs
-
-- hosts: demo
-  user: ansible
-  become: yes
-  connection: ssh
-  roles:
-       - Debian
+       - { role: CentOs, when: ansible_os_family == 'RedHat' }
+       - { role: Debian, when: ansible_os_family == 'Debian' }
