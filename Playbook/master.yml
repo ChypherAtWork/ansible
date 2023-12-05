@@ -1,5 +1,5 @@
 ---
-- hosts: demo1
+- hosts: demo
   user: ansible
   become: yes
   roles:
