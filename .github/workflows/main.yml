@@ -13,8 +13,12 @@ jobs:
         run: |
           BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
           echo "Branch name is: $BRANCH_NAME"
-          PATTERN="^feature/.*$" # Define your branch naming pattern here
-          if [[ ! $BRANCH_NAME =~ $PATTERN ]]; then
-            echo "Error: Branch name must start with 'feature/'. Deleting the branch..."
+          # Define your branch naming patterns here
+          FEATURE="^feature/.*$"
+          BUGFIX="^bugfix/.*$"
+          HOTFIX="^hotfix/.*$"
+          if [[ ! $BRANCH_NAME =~ $FEATURE ]] && [[ ! $BRANCH_NAME =~ $BUGFIX ]] && [[ ! $BRANCH_NAME =~ $HOTFIX ]]; then
+            echo "Error: Branch name must start with 'feature/', 'bugfix/' or 'hotfix/'. Deleting the branch..."
+            # Delete the branch using GitHub API
             curl -X DELETE -H "Authorization: token ${{ secrets.MY_GITHUB_TOKEN }}" "https://api.github.com/repos/${GITHUB_REPOSITORY}/git/refs/heads/${BRANCH_NAME}"
           fi
