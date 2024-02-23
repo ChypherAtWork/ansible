@@ -10,4 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Debug Branch Name
-        run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+        run: |
+          BRANCH_NAME=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+          echo "Branch name is: $BRANCH_NAME"
+          PATTERN="^feature/.*$" # Define your branch naming pattern here
+          if [[ ! $BRANCH_NAME =~ $PATTERN ]]; then
+            echo "Error: Branch name must start with 'feature/'. Branch creation aborted."
+          fi
