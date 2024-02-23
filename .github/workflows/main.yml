@@ -17,5 +17,4 @@ jobs:
           if [[ ! $BRANCH_NAME =~ $PATTERN ]]; then
             echo "Error: Branch name must start with 'feature/'. Deleting the branch..."
             curl -X DELETE -H "Authorization: token ${{ secrets.MY_GITHUB_TOKEN }}" "https://api.github.com/repos/${GITHUB_REPOSITORY}/git/refs/heads/${BRANCH_NAME}"
-            exit 1
           fi
