@@ -1,0 +1,6 @@
+jobs:
+  enforce_pattern:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Debug Branch Name
+        run: echo "Branch name is: ${{ github.ref }}"
