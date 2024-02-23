@@ -1,3 +1,9 @@
+name: Enforce Branch Pattern
+
+on:
+  create:
+    branches:
+      - '*'
 jobs:
   enforce_pattern:
     runs-on: ubuntu-latest
