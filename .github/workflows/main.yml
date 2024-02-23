@@ -15,5 +15,7 @@ jobs:
           echo "Branch name is: $BRANCH_NAME"
           PATTERN="^feature/.*$" # Define your branch naming pattern here
           if [[ ! $BRANCH_NAME =~ $PATTERN ]]; then
-            echo "Error: Branch name must start with 'feature/'. Branch creation aborted."
+            echo "Error: Branch name must start with 'feature/'. Deleting the branch..."
+            # Delete the branch using GitHub API
+            curl -X DELETE -H "Authorization: token ${{ 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 }}" "https://api.github.com/repos/${GITHUB_REPOSITORY}/git/refs/heads/${BRANCH_NAME}"
           fi
