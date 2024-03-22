@@ -1,6 +1,6 @@
 @Library("shared-lib") _ 
 pipeline {
-    agent { label 'docker' }
+    agent { label 'spot-ai' }
     options { timestamps() }
     environment {
         GIT_CRED        = credentials('Github-Read')
