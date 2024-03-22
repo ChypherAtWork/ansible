@@ -1,11 +1,12 @@
 @Library("shared-lib") _
 pipeline {
-    agent { label 'docker' }
+    agent docker
     stages {
         stage('Build') {
             steps {
                 script {
-                    test()
+                    def main = load ('src/main.groovy')
+                    main()
                 }
             }
         }
