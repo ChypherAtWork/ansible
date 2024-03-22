@@ -12,7 +12,7 @@ pipeline {
         stage('Build an Updated Tag') {
             steps {
                 script {
-                    pypiPackageUpdate()
+                    pypiPackageUpdate{}
                 }
             }
         }
