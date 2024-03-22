@@ -1,4 +1,4 @@
-@Library("quritivePipelines") _ 
+@Library("shared-lib") _ 
 pipeline {
     agent { label 'spot-ai' }
     options { timestamps() }
