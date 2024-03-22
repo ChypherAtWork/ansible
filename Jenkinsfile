@@ -1,4 +1,4 @@
-@Library("shared-lib") import main
+@Library("shared-lib") _
 pipeline {
     agent { label 'docker' }
     stages {
