@@ -1,11 +1,18 @@
-@Library("shared-lib") _
+@Library("quritivePipelines") _ 
 pipeline {
-    agent { label 'docker' }
+    agent { label 'spot-ai' }
+    options { timestamps() }
+    environment {
+        GIT_CRED        = credentials('Github-Read')
+        PYPI            = credentials('pypi-admin-creds')
+        PYPI_REPO       = 'https://pypi.qritive.com/simple/'
+        SECRET_FILE     = credentials('version-file')
+    }
     stages {
-        stage('Build') {
+        stage('Build an Updated Tag') {
             steps {
                 script {
-                   main.callTestScript()
+                    main()
                 }
             }
         }
