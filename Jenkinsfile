@@ -5,7 +5,6 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    def main = load ('src/main.groovy')
                     main()
                 }
             }
