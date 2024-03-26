@@ -12,7 +12,12 @@ pipeline {
         stage('Build an Updated Tag') {
             steps {
                 script {
-                    pypiPackageUpdate()
+                    semanticVersionAi{
+                        GIT_CRED_PSW = GIT_CRED_PSW
+                        PYPI_USR     = PYPI_USR
+                        PYPI_PSW     = PYPI_PSW
+                        PYPI_REPO    = PYPI_REPO
+                    }
                 }
             }
         }
